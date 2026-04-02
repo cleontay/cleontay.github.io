@@ -70,16 +70,15 @@ export default function Portfolio() {
           <Card className="flex flex-col items-center text-center py-8">
             <div className="relative mb-4">
                {/* Replace with your actual image path */}
-               <div className="w-24 h-24 rounded-full border-2 border-cyan-400 p-1">
+               <div className="w-48 h-48 rounded-full border-2 border-cyan-400 p-1">
                   <img 
-                    src="/hero.png" 
+                    src="/hero_profile.png" 
                     alt="Profile" 
                     className="w-full h-full rounded-full object-cover bg-gray-800"
                   />
                </div>
-               <span className="absolute bottom-1 right-1 w-4 h-4 bg-green-500 border-2 border-[#0f172a] rounded-full"></span>
             </div>
-            <h1 className="text-2xl font-bold">Tay Cleon</h1>
+            <h1 className="text-2xl font-bold text-white">Tay Cleon</h1>
             <p className="text-cyan-400 text-sm">Full-Stack Software Engineer</p>
             <div className="mt-4 flex gap-3">
                <span className="px-3 py-1 text-[10px] bg-cyan-500/10 border border-cyan-400/30 rounded-full text-cyan-300">
