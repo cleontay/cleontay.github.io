@@ -1,121 +1,92 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+// High-performance Bento Portfolio (Vite + React)
+// Deployable to GitHub Pages
+// Instructions:
+// 1. npm create vite@latest my-portfolio -- --template react
+// 2. Replace src/App.jsx with this file
+// 3. Install: npm i framer-motion
+// 4. Add base in vite.config.js: base: '/<repo-name>/'
+// 5. npm run build && deploy to gh-pages
 
-function App() {
-  const [count, setCount] = useState(0)
+import { motion } from "framer-motion";
 
+const projects = [
+  {
+    title: "MySQL App Backend",
+    desc: "Scalable Node.js API with Sequelize",
+    link: "https://github.com/yourusername/project1",
+  },
+  {
+    title: "n8n Automation",
+    desc: "Workflow automation pipelines",
+    link: "https://github.com/yourusername/project2",
+  },
+  {
+    title: "Flutter Map App",
+    desc: "Navigation + open map integration",
+    link: "https://github.com/yourusername/project3",
+  },
+];
+
+const tech = ["Node.js", "Docker", "n8n", "Linux", "React", "Next.js", "Flutter"];
+
+export default function App() {
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
+    <div className="bg-[#020617] text-white min-h-screen font-sans p-6">
+      <div className="max-w-6xl mx-auto grid gap-6 grid-cols-1 md:grid-cols-3 auto-rows-[150px]">
+
+        {/* Hero */}
+        <Card className="md:col-span-2 row-span-2">
+          <h1 className="text-3xl font-bold">Tay Cleon</h1>
+          <p className="text-cyan-400">Full-Stack Software Engineer</p>
+          <span className="mt-2 inline-block px-3 py-1 text-xs bg-cyan-500/20 border border-cyan-400 rounded-full">
+            Open to Collabs
+          </span>
+        </Card>
+
+        {/* About */}
+        <Card>
+          <h2 className="font-semibold mb-2">About</h2>
+          <p className="text-sm text-gray-300">
+            Building scalable apps using React, Next.js, and Flutter. Focused on performance,
+            automation, and clean architecture.
           </p>
-        </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+        </Card>
 
-      <div className="ticks"></div>
+        {/* Tech */}
+        <Card className="md:col-span-2">
+          <h2 className="font-semibold mb-2">Tech Stack</h2>
+          <div className="flex flex-wrap gap-2">
+            {tech.map((t) => (
+              <span key={t} className="px-2 py-1 text-xs border border-violet-400 rounded-full">
+                {t}
+              </span>
+            ))}
+          </div>
+        </Card>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+        {/* Projects */}
+        {projects.map((p, i) => (
+          <Card key={i}>
+            <h3 className="font-semibold">{p.title}</h3>
+            <p className="text-sm text-gray-400">{p.desc}</p>
+            <a href={p.link} target="_blank" className="text-cyan-400 text-sm mt-2 inline-block">
+              View Project →
+            </a>
+          </Card>
+        ))}
+      </div>
+    </div>
+  );
 }
 
-export default App
+function Card({ children, className = "" }) {
+  return (
+    <motion.div
+      whileHover={{ scale: 1.03 }}
+      className={`relative rounded-2xl p-4 backdrop-blur-lg bg-white/5 border border-white/10 hover:border-cyan-400 transition-all shadow-lg ${className}`}
+    >
+      <div className="absolute inset-0 rounded-2xl opacity-0 hover:opacity-100 bg-gradient-to-r from-cyan-500/10 to-violet-500/10 transition"></div>
+      <div className="relative z-10">{children}</div>
+    </motion.div>
+  );
+}
