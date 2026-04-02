@@ -72,7 +72,7 @@ export default function Portfolio() {
                {/* Replace with your actual image path */}
                <div className="w-24 h-24 rounded-full border-2 border-cyan-400 p-1">
                   <img 
-                    src="/api/placeholder/150/150" 
+                    src="/hero.png" 
                     alt="Profile" 
                     className="w-full h-full rounded-full object-cover bg-gray-800"
                   />
