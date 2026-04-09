@@ -7,6 +7,12 @@ const projects = [
     link: "https://github.com/cleontay/Telegram-Media-Downloader-Bot",
     tags: ["Python", "Telegram API", "YTDLP"]
   },
+  {
+    title: "Personal Accountant",
+    desc: "A lightweight, personal expense tracker that syncs with Supabase. Monitor monthly spending, visualize categories with pie charts, and manage transactions from anywhere.",
+    link: "https://github.com/cleontay/P-Accountant",
+    tags: ["Python", "Telegram API", "YTDLP"]
+  },
 ];
 
 const tech = ["React", "Next.js", "Flutter", "Node.js", "Docker", "n8n", "Linux", "MongoDB", "Express.js", "LLM", "VLLM", "Prompt Engineer", "Scripting"];
@@ -49,7 +55,7 @@ export default function Portfolio() {
           </div>
         </div>
 
-        <div className="lg:col-span-4 space-y-6">
+        <a href="https://github.com/cleontay" className="lg:col-span-4 space-y-6">
           <Card className="flex flex-col items-center justify-center text-center py-8">
             <div className="relative mb-4 flex justify-center">
                <div className="w-40 h-40 rounded-full border-2 border-cyan-400 p-1">
@@ -89,7 +95,7 @@ export default function Portfolio() {
               ))}
             </div>
           </Card>
-        </div>
+        </a>
 
       </div>
     </div>
