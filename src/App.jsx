@@ -11,7 +11,7 @@ const projects = [
     title: "Personal Accountant",
     desc: "A lightweight, personal expense tracker that syncs with Supabase. Monitor monthly spending, visualize categories with pie charts, and manage transactions from anywhere.",
     link: "https://github.com/cleontay/P-Accountant",
-    tags: ["Python", "Telegram API", "YTDLP"]
+    tags: ["HTML", "Supabase", "Google Script", "JS"]
   },
 ];
 
@@ -30,11 +30,11 @@ export default function Portfolio() {
             </h2>
           </div>
           
-          <div className="flex flex-wrap gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {projects.map((p, i) => (
               <Card 
                 key={i} 
-                className="w-full md:w-[calc(50%-12px)] min-h-[280px] flex flex-col justify-between"
+                className="min-h-[280px] flex flex-col justify-between"
               >
                 <div>
                   <h3 className="font-bold text-xl text-white mb-2">{p.title}</h3>
