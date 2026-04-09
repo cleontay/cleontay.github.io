@@ -11,8 +11,9 @@ const projects = [
     title: "Personal Accountant",
     desc: "A lightweight, personal expense tracker that syncs with Supabase. Monitor monthly spending, visualize categories with pie charts, and manage transactions from anywhere.",
     link: "https://github.com/cleontay/P-Accountant",
-    tags: ["HTML", "Supabase", "Google Script", "JS"]
-  },
+    tags: ["HTML", "Supabase", "Google Script", "JS"],
+    demoLink: "https://cleontay.github.io/P-Accountant/", // optional
+  }
 ];
 
 const tech = ["React", "Next.js", "Flutter", "Node.js", "Docker", "n8n", "Linux", "MongoDB", "Express.js", "LLM", "VLLM", "Prompt Engineer", "Scripting"];
@@ -30,26 +31,65 @@ export default function Portfolio() {
             </h2>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
             {projects.map((p, i) => (
               <Card 
                 key={i} 
-                className="min-h-[280px] flex flex-col justify-between"
+                className="min-h-[320px] flex flex-col justify-between group hover:border-cyan-400/30 transition-all duration-300"
               >
                 <div>
-                  <h3 className="font-bold text-xl text-white mb-2">{p.title}</h3>
+                  <h3 className="font-bold text-xl text-white mb-2 group-hover:text-cyan-400 transition-colors">
+                    {p.title}
+                  </h3>
                   <p className="text-sm text-gray-400 leading-relaxed">{p.desc}</p>
                   <div className="flex flex-wrap gap-2 mt-4">
-                      {p.tags?.map(tag => (
-                          <span key={tag} className="text-[10px] uppercase tracking-wider text-cyan-400/80 font-mono bg-cyan-400/5 px-2 py-0.5 rounded">
-                              #{tag}
-                          </span>
-                      ))}
+                    {p.tags?.map(tag => (
+                      <span key={tag} className="text-[10px] uppercase tracking-wider text-cyan-400/80 font-mono bg-cyan-400/5 px-2 py-0.5 rounded">
+                        #{tag}
+                      </span>
+                    ))}
                   </div>
                 </div>
-                <a href={p.link} target="_blank" rel="noreferrer" className="mt-6 text-cyan-400 text-sm font-semibold hover:text-cyan-300 transition-colors inline-block">
-                  Source Code →
-                </a>
+                
+                <div className="flex flex-col sm:flex-row gap-3 mt-6">
+                  {/* Demo Button */}
+                  <a 
+                    href={p.demoLink} 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className={`
+                      flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200
+                      ${p.demoLink 
+                        ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white hover:shadow-lg hover:shadow-cyan-500/25 hover:scale-105' 
+                        : 'bg-gray-700/50 text-gray-500 cursor-not-allowed opacity-50 pointer-events-none'
+                      }
+                    `}
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                    Live Demo
+                  </a>
+                  
+                  {/* Source Button */}
+                  <a 
+                    href={p.link} 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className={`
+                      flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 border
+                      ${p.link 
+                        ? 'border-cyan-400 text-cyan-400 hover:bg-cyan-400/10 hover:scale-105' 
+                        : 'border-gray-700 text-gray-600 cursor-not-allowed opacity-50 pointer-events-none'
+                      }
+                    `}
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                    </svg>
+                    Source Code
+                  </a>
+                </div>
               </Card>
             ))}
           </div>
