@@ -13,6 +13,13 @@ const projects = [
     link: "https://github.com/cleontay/P-Accountant",
     tags: ["HTML", "Supabase", "Google Script", "JS"],
     demoLink: "https://cleontay.github.io/P-Accountant/", // optional
+  },
+  {
+    title: "ChronoLuna",
+    desc: "A personal mobile Event Countdown (ChronoLuna) that syncs to a Supabase database.",
+    link: "https://github.com/cleontay/ChronoLuna/tree/main",
+    tags: ["HTML", "Supabase", "JS"],
+    demoLink: "https://cleontay.github.io/ChronoLuna/", // optional
   }
 ];
 
